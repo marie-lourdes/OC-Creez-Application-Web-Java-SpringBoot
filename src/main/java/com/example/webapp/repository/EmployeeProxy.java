@@ -1,7 +1,5 @@
 package com.example.webapp.repository;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -12,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 import com.example.webapp.CustomProperties;
 import com.example.webapp.model.Employee;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Component
 public class EmployeeProxy {
 
@@ -25,7 +25,7 @@ public class EmployeeProxy {
 	 */
 
 	public Iterable<Employee> getEmployees() {
-		String baseApiUrl = props.getApiUrl(); // recupere la propriété apiUrl
+		String baseApiUrl = props.getApiUrl(); // recupere la propriété apiUrl avec la emethode generé de lombok
 		String getEmployeesUrl = baseApiUrl + "/employees";
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -33,7 +33,7 @@ public class EmployeeProxy {
 				new ParameterizedTypeReference<Iterable<Employee>>() {
 				});
 
-		System.out.println("Get Employees call " + response.getStatusCode().toString());
+		log.info("Get Employees call " + response.getStatusCode().toString() +response);
 
 		return response.getBody();
 	}

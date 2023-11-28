@@ -7,12 +7,8 @@ import lombok.Data;
 
 @Configuration
 @ConfigurationProperties(prefix = "com.example.webapp")
-@Data // les setters et getters ne fonctionne pas meme apres installation du jar lombok et chargemnt du la dependency
+@Data // les setters et getters 
 public class CustomProperties {
 	private String apiUrl;
-	
-	public String getApiUrl() {
-		return apiUrl;
-	}
-	
+
 }
