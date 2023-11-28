@@ -2,6 +2,7 @@ package com.example.webapp.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,22 @@ public class EmployeeProxy {
 		log.info("Get Employees call " + response.getStatusCode().toString() +response);
 
 		return response.getBody();
+	}
+
+	public Employee createEmployee(Employee e) {
+	    String baseApiUrl = props.getApiUrl();
+	    String createEmployeeUrl = baseApiUrl + "/employee";
+
+	    RestTemplate restTemplate = new RestTemplate();
+	    HttpEntity<Employee> request = new HttpEntity<Employee>(e);
+	    ResponseEntity<Employee> response = restTemplate.exchange(
+	        createEmployeeUrl,
+	        HttpMethod.POST,
+	        request,
+	        Employee.class);
+
+	    log.debug("Create Employee call " + response.getStatusCode().toString());
+
+	    return response.getBody();
 	}
 }
