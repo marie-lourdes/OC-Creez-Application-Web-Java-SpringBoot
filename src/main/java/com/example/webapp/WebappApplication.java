@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebappApplication  implements CommandLineRunner{
+public class WebappApplication {
 	@Autowired
     private CustomProperties properties;
 
@@ -14,8 +14,8 @@ public class WebappApplication  implements CommandLineRunner{
         SpringApplication.run(WebappApplication.class, args);
     }
 
-    @Override
+    /*@Override
     public void run(String... args) throws Exception {
         System.out.println(properties.getApiUrl());
-    }
+    }*/
 }
