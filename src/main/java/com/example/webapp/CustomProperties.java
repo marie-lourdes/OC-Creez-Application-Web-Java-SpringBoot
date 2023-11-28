@@ -6,8 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import lombok.Data;
 
 @Configuration
-@ConfigurationProperties(prefix = "com.openclassrooms.webapp")
-@Data
+@ConfigurationProperties(prefix = "com.example.webapp")
+@Data // les setters et getters ne fonctionne pas meme apres installation du jar lombok et chargemnt du la dependency
 public class CustomProperties {
 	private String apiUrl;
+	
+	public String getApiUrl() {
+		return apiUrl;
+	}
+	
 }
