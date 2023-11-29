@@ -34,7 +34,7 @@ public class EmployeeService {
 		employeeProxy.deleteEmployee(id);
 	}
 
-	public Employee getEmployee(final int id) {
+	public Employee getEmployee( final int id) {
 		return employeeProxy.getEmployee(id);
 	}
 
