@@ -35,5 +35,9 @@ class EmployeeControllerITTest {
 	            .andExpect(status().isOk())
 	            .andExpect(view().name("home"))
 	            .andExpect(content().string(containsString("Laurent")));
+	            
+	            view().name(“home”) : le nom de vue retourné correspond au paramètre “home” ;
+
+content().string(containsString("Laurent")) : le corps de la réponse contient à un moment ou à un autre le texte Laurent.
 	    }*/
 }
