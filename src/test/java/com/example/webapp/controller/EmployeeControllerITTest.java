@@ -28,4 +28,12 @@ class EmployeeControllerITTest {
 	          assertThat(result.getResponse().getContentAsString())
 				.contains(">Laurent</span");
 	    }
+	  /*  @Test
+	    public void testGetEmployees() throws Exception {
+	        mockMvc.perform(get("/"))
+	            .andDo(print())
+	            .andExpect(status().isOk())
+	            .andExpect(view().name("home"))
+	            .andExpect(content().string(containsString("Laurent")));
+	    }*/
 }
